@@ -21,13 +21,29 @@ class parserHtml {
         return data;
     }
 
+    static buildHtmlReplacement(person) {
+        let replacement = ""
+        for (let i = 0; i < person.length; i++)
+        {
+            replacement += "<tr>\n" +
+                "            <td>" + person[i][0] + "</td>\n" +
+                "            <td>" + person[i][1] + "</td>\n" +
+                "        </tr>\n"
+        }
+        //console.log(replacement);
+        return replacement;
+    }
+
     static replaceHtml(){
-        const htmlPattern = `<tr>
-        <td>`
-        console.log(htmlPattern);
-        const result = this.readHtml().replace(htmlPattern, fileReader.buildHtmlReplacement(fileReader.readFile()));
-        console.log(result);
-        // return result
+
+        //Suchpattern, um Tags, newlines etc. zu inkludieren und damit größeren Teil des Dokuments zu ersetzen
+        let htmlPattern = "$firstName, $lastName"
+        const result = this.readHtml().replace(htmlPattern, this.buildHtmlReplacement(fileReader.readFile()));
+        return result;
+    }
+
+    static writeHtml(content){
+        fs.writeFileSync('./out/htmlFiles/file.html', content)
     }
 }
 

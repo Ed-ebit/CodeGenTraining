@@ -50,18 +50,7 @@ class fileReader {
 //}isEqual
     }
 
-    static buildHtmlReplacement(person) {
-        let replacement = ""
-        for (let i = 0; i < person.length; i++)
-        {
-            replacement += "<tr>\n" +
-                "            <td>" + person[i][0] + "</td>\n" +
-                "            <td>" + person[i][1] + "</td>\n" +
-                "        </tr>\n"
-        }
-        //console.log(replacement);
-        return replacement;
-    }
+
 }
 
 module.exports = {fileReader};

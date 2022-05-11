@@ -2,6 +2,7 @@ require ("./classes/fileReader");
 require ("./classes/parser_html");
 const {fileReader} = require("./classes/fileReader");
 const {parserHtml} = require("./classes/parser_html");
+const {parserXml} = require("./classes/parser_xml");
 
 
 
@@ -15,18 +16,20 @@ if (customIndex >= 0) {
 // require('./templates/template_'+ customValue +'.'+customValue);
 switch (customValue){
     case 'xml':
-        // console.log('xmlhöhö')
-        require('./templates/template_xml.xml')
+        console.log('xmlhöhö')
+        //require('./templates/template_xml.xml');
+        parserXml.writeXml(parserXml.replaceXml());
         break;
     case 'html':
-        // console.log('htmlhöhö')
-        require('templates/template_html.html')
+        console.log('htmlhöhö')
+        //require('templates/template_html.html');
+        parserHtml.writeHtml(parserHtml.replaceHtml());
         break;
     default:
-        // console.log('unbekanntes Argument! Opfa')
+        console.log('Bitte über --custom \"xml\" oder \"html\" als Argument angeben!')
         break;
 }
- parserHtml.replaceHtml()
+
 // let test2 = fileReader.readFile();
 // let test = parserHtml.readHtml();
 // let test3 = fileReader.buildHtmlReplacement(fileReader.readFile())
