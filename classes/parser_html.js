@@ -38,6 +38,7 @@ class parserHtml {
     static replaceHtml(){
 
         //Suchpattern, um Tags, newlines etc. zu inkludieren und damit größeren Teil des Dokuments zu ersetzen
+        //const regex = /<tr.*(\n.*?)*<\/tr>/g;
         let htmlPattern = "$firstName, $lastName"
         const result = this.readHtml().replace(htmlPattern, this.buildHtmlReplacement(utilities.readJson()));
         return result;

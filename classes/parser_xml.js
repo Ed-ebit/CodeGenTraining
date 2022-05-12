@@ -22,7 +22,7 @@ class parserXml {
                 "            </name>\n" +
                 "</user>\n"
         }
-        console.log(replacement);
+        //console.log(replacement);
         return replacement;
     }
 
@@ -33,7 +33,7 @@ class parserXml {
     }
 
     static writeXml(content){
-        fse.outputFileSync(`./out/${utilities.setDate()}/file.html`, content,{ flag: 'a+' })
+        fse.outputFileSync(`./out/${utilities.setDate()}/file.xml`, content,{ flag: 'a+' })
     }
 }
 

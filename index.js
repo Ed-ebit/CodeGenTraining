@@ -24,7 +24,7 @@ switch (customValue){
         console.log('htmlhöhö')
         //require('templates/template_html.html');
         parserHtml.writeHtml(parserHtml.replaceHtml());
-        console.log(utilities.setDate())
+        //console.log(utilities.setDate())
         break;
     default:
         console.log('Bitte über --custom \"xml\" oder \"html\" als Argument angeben!')
