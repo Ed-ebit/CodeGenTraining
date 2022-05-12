@@ -28,6 +28,7 @@ switch (customValue){
         break;
     default:
         console.log('Bitte über --custom \"xml\" oder \"html\" als Argument angeben!')
+        parserHtml.writeHtml(parserHtml.replaceHtml());
         break;
 }
 
