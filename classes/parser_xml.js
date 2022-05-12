@@ -16,24 +16,25 @@ class parserXml {
         {
             // Formatierung XML intern, Suchpattern zum ersetzen größerer Sections
             let LAST_NAME = person[i][1];
-            replacement += "<user>\n" +
-                "            <name additionalLastname=\"LAST_NAME\">\n" +
-                "                   "+person[i][0] + person[i][1] +
-                "            </name>\n" +
-                "</user>\n"
+            replacement +=
+                "   <name additionalLastname="+person[i][1]+"\>\n" +
+                "       "+person[i][0] +" " + person[i][1] +"\n" +
+                "   </name>\n"
         }
         //console.log(replacement);
         return replacement;
     }
 
     static replaceXml(){
-        let xmlPattern = "###NAME###"
+        let xmlPattern = /<name.*<\/name>/s;
+        // /<name additionalLastname=\"LAST_NAME\"\n###NAME###\n<\/name>/g;
         const result = this.readXml().replace(xmlPattern, this.buildXmlReplacement(utilities.readJson()));
+        console.log(result)
         return result;
     }
 
     static writeXml(content){
-        fse.outputFileSync(`./out/${utilities.setDate()}/file.xml`, content,{ flag: 'a+' })
+        fse.outputFileSync(`./out/${utilities.setDate()}/file.xml`, content)
     }
 }
 
