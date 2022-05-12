@@ -1,5 +1,6 @@
 const fs = require ('fs');
-const {fileReader} = require("./fileReader");
+const fse = require ('fs-extra');
+const {utilities} = require("./utilities");
 
 class parserXml {
 
@@ -27,12 +28,12 @@ class parserXml {
 
     static replaceXml(){
         let xmlPattern = "###NAME###"
-        const result = this.readXml().replace(xmlPattern, this.buildXmlReplacement(fileReader.readFile()));
+        const result = this.readXml().replace(xmlPattern, this.buildXmlReplacement(utilities.readJson()));
         return result;
     }
 
     static writeXml(content){
-        fs.writeFileSync('./out/xmlFiles/file.xml', content,{ flag: 'a+' })
+        fse.outputFileSync(`./out/${utilities.setDate()}/file.html`, content,{ flag: 'a+' })
     }
 }
 

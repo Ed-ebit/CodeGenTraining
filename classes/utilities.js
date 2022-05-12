@@ -1,12 +1,12 @@
 const fetchedJson = require('../config/config.json');
 
-class fileReader {
+class utilities {
 // console.log(customValue);
 // console.log(fetchedJson);
 
 // const fetchedFirstName = [];
 
-    static readFile() {
+    static readJson() {
         for (const obj in fetchedJson) {
 //     console.log(`${obj}: ${fetchedJson[name]}`);
             var person = [];
@@ -49,9 +49,13 @@ class fileReader {
 //     return false;
 //}isEqual
     }
-
+    static setDate(){
+        const currentDate = new Date();
+        let dateTime = currentDate.getFullYear() + "_" + (currentDate.getMonth()+1)+ "_" + currentDate.getDate();
+        return dateTime;
+    }
 
 }
 
-module.exports = {fileReader};
+module.exports = {utilities};
 

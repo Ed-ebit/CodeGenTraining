@@ -1,6 +1,6 @@
-require ("./classes/fileReader");
+require ("./classes/utilities");
 require ("./classes/parser_html");
-const {fileReader} = require("./classes/fileReader");
+const {utilities} = require("./classes/utilities");
 const {parserHtml} = require("./classes/parser_html");
 const {parserXml} = require("./classes/parser_xml");
 
@@ -24,6 +24,7 @@ switch (customValue){
         console.log('htmlhöhö')
         //require('templates/template_html.html');
         parserHtml.writeHtml(parserHtml.replaceHtml());
+        console.log(utilities.setDate())
         break;
     default:
         console.log('Bitte über --custom \"xml\" oder \"html\" als Argument angeben!')

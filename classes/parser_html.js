@@ -1,5 +1,6 @@
 const fs = require ('fs');
-const {fileReader} = require("./fileReader");
+const fse = require ('fs-extra');
+const {utilities} = require("./utilities");
 
 class parserHtml {
 
@@ -38,12 +39,12 @@ class parserHtml {
 
         //Suchpattern, um Tags, newlines etc. zu inkludieren und damit größeren Teil des Dokuments zu ersetzen
         let htmlPattern = "$firstName, $lastName"
-        const result = this.readHtml().replace(htmlPattern, this.buildHtmlReplacement(fileReader.readFile()));
+        const result = this.readHtml().replace(htmlPattern, this.buildHtmlReplacement(utilities.readJson()));
         return result;
     }
 
     static writeHtml(content){
-        fs.writeFileSync('./out/htmlFiles/file.html', content)
+        fse.outputFileSync(`./out/${utilities.setDate()}/file.html`, content)
     }
 }
 
