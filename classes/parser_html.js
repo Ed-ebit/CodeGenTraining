@@ -4,19 +4,7 @@ const {utilities} = require("./utilities");
 
 class parserHtml {
 
-//var test = document.getElementById("$firstName");
-
     static readHtml() {
-
-//     {fs.readFile('./templates/template_html.html', "utf-8",(err, data)  => {
-//         if (err) {
-//             return err;
-//         }
-//
-//         //console.log(a);
-//         //return a;
-//     })
-// };}
         let data = fs.readFileSync('./templates/template_html.html', 'utf-8')
         // console.log(data)
         return data;
@@ -31,16 +19,11 @@ class parserHtml {
                 "            <td>" + person[i][1] + "</td>\n" +
                 "        </tr>\n"
         }
-        //console.log(replacement);
         return replacement;
     }
 
     static replaceHtml(){
-
-        //Suchpattern, um Tags, newlines etc. zu inkludieren und damit größeren Teil des Dokuments zu ersetzen
-        //const regex = /<tr.*(\n.*?)*<\/tr>/g;
         const regex =/<td.*<\/td>/s;
-        //let htmlPattern = "$firstName, $lastName" (\n<td>firstName<\/td><td>lastName<\/td>)
         const result = this.readHtml().replace(regex, this.buildHtmlReplacement(utilities.readJson()));
         return result;
     }
@@ -49,7 +32,5 @@ class parserHtml {
         fse.outputFileSync(`./out/${utilities.setDate()}/file.html`, content)
     }
 }
-
-
 
 module.exports = {parserHtml};
