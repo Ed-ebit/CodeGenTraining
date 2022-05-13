@@ -1,16 +1,16 @@
 {
   "data": [
     {
-      "name": "Leonard",
-      "last_name": "Bolland"
+      "FIRST_NAME": "Leonard",
+      "LAST_NAME": "Bolland"
   },
     {
-      "name": "Karl-Maddin",
-      "last_name": "Vogel"
+      "FIRST_NAME": "Karl-Maddin",
+      "LAST_NAME": "Vogel"
     },
     {
-      "name": "Peter",
-      "last_name": "Hansen"
+      "FIRST_NAME": "Peter",
+      "LAST_NAME": "Hansen"
     }
     ]
 }
