@@ -29,5 +29,4 @@ class Render {
         return this.template.split(`##${marker}_START##`)[1].split(`##${marker}_END##`)[0];
     }
 
-
 }

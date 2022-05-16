@@ -1,9 +1,10 @@
-class HtmlParser{
+import {utilities} from "./utilities";
 
-    constructor(entities){
-        this.entities = entities;
-    }
-    readPath = `./templates/template_html.html`;
-    writePath = `./out/${utilities.setDate()}/file.html`;
 
-}
+const htmlLocation = {
+    templatePath: `./templates/template_html.html`,
+    writePath: `./out/${utilities.setDate()}/file.html`
+};
+
+module.exports = {htmlLocation};
+
