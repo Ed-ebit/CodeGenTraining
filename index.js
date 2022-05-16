@@ -3,6 +3,7 @@ require ("./classes/parser_html");
 const {utilities} = require("./classes/utilities");
 const {parserHtml} = require("./classes/parser_html");
 const {parserXml} = require("./classes/parser_xml");
+const ReadWrite = require("fs-extra");
 
 
 
@@ -18,17 +19,17 @@ switch (customValue){
     case 'xml':
         console.log('xmlhöhö')
         //require('./templates/template_xml.xml');
-        parserXml.writeXml(parserXml.replaceXml());
+        // parserXml.writeXml(parserXml.replaceXml());
         break;
     case 'html':
         console.log('htmlhöhö')
         //require('templates/template_html.html');
-        parserHtml.writeHtml(parserHtml.replaceHtml());
+        // parserHtml.writeHtml(parserHtml.replaceHtml());
         //console.log(utilities.setDate())
         break;
     default:
         console.log('Bitte über --custom \"xml\" oder \"html\" als Argument angeben!')
-        parserHtml.writeHtml(parserHtml.replaceHtml());
+        // parserHtml.writeHtml(parserHtml.replaceHtml());
         break;
 }
 
