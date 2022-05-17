@@ -1,32 +1,33 @@
 const FileHandler = require("./classes/FileHandler");
-const htmlLocation = require("./classes/HtmlParser");
+const htmlLocator = require("./classes/HtmlLocator");
+const xmlLocator = require("./classes/xmlLocator");
 const Render = require ("./classes/Render");
 
-const customIndex = process.argv.indexOf('--custom');
-let customValue;
+const nodeIndex = process.argv;
+// console.log(nodeIndex);
+let customValue = nodeIndex[2];
+// console.log(customValue);
 
-if (customIndex >= 0) {
-    customValue = process.argv[customIndex+1];
-}
-
-let templatePath = "";
+let templatePath;
+let writePath;
 switch (customValue){
     case 'xml':
         console.log('xml wird generiert')
-        // templatePath = xmlLocation
+        templatePath = xmlLocator.xmlLocator.templatePath;
+        writePath = xmlLocator.xmlLocator.writePath;
         break;
     case 'html':
         console.log('html wird generiert')
-        templatePath = htmlLocation
+        templatePath = htmlLocator.htmlLocator.templatePath;
+        writePath = htmlLocator.htmlLocator.writePath;
         break;
     default:
-        console.log('Bitte über --custom \"xml\" oder \"html\" als Argument angeben!')
-
-        templatePath = htmlLocation
+        console.log('Bitte über zusätzlich \"xml\" oder \"html\" als Argument beim Start angeben!')
         break;
 }
-let task = new Render.constructor(FileHandler.readJson(), FileHandler.readTemplate(templatePath));
-//wieso Render.constructor?? Sollte nicht new render reichen?
+let task = new Render(FileHandler.readJson(), FileHandler.readTemplate(templatePath));
 
-console.log(task);
-task.generate(); // Not a Function, whyyyy? ;((
+// console.log(task);
+// task.generate(); // Not a Function, whyyyy? ;((
+FileHandler.write(writePath, task.generate());
+// console.log(FileHandler.write(writePath, task.generate()));
