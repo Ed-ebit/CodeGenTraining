@@ -1,14 +1,15 @@
-import fs from "fs";
-import fse from "fs-extra";
-import fetchedJson from "../config/config.json";
+const fs = require ('fs');
+const fse = require ('fs-extra');
+const fetchedJson = require ('../config/config.json');
 
 class FileHandler {
+
     /**
      *
      * @param {string} readPath
      * @returns {string}
      */
-    static read(readPath) {
+    static readTemplate(readPath) {
         let data = fs.readFileSync(readPath, 'utf-8')
         return data;
     }
@@ -34,3 +35,5 @@ class FileHandler {
         return dateTime;
     }
 }
+
+module.exports = {readTemplate(){}, write(){}, readJson(){}, getFolderName(){}};
