@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 
+
 <user>
-    <name additionalLastname="LAST_NAME">
-        ###NAME###
+    ##CUSTOMER_START##
+    <name additionalLastname="##LAST_NAME##">
+        ##FIRST_NAME##
     </name>
+    ##CUSTOMER_END##
 </user>
 

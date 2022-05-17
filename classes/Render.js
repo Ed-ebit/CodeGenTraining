@@ -5,10 +5,11 @@ class Render {
      * @param {array} entities
      * @param {string} template
      */
-    constructor(entities, template){
-
+    constructor(entities, template ){
+        // console.log(entities, template);
         this.entities = entities;
         this.template = template;
+        // this.generate = generate;
 
     }
 
@@ -18,6 +19,7 @@ class Render {
 
         this.entities.forEach(entity => {
             Object.keys(entity).forEach(property => {
+                console.log(entity, entity[property])
                 returnStr += `${ partial.replace(`##${property}##`, entity[property])}\n`;
             })
         });
@@ -26,9 +28,10 @@ class Render {
     }
 
     findByMarker(marker){
+        // console.log(this.template.split(`##${marker}_START##`)[1].split(`##${marker}_END##`)[0])
         return this.template.split(`##${marker}_START##`)[1].split(`##${marker}_END##`)[0];
     }
 
 }
 
-module.exports= {generate(){}};
+module.exports = Render;

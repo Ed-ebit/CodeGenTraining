@@ -15,7 +15,7 @@ class FileHandler {
     }
 
     static write(writePath, content){
-        fse.outputFileSync(`./out/${FileHandler.getFolderName()}/${writePath}`, content)
+        fse.outputFileSync(writePath, content)
     }
 
     static readJson() {
@@ -25,7 +25,7 @@ class FileHandler {
             let values = Object.values(fetchedJson.data[i]);
             person[i] = values;
         }
-        console.log(person)
+        // console.log(person)
         return person;
     }
 
@@ -36,4 +36,4 @@ class FileHandler {
     }
 }
 
-module.exports = {readTemplate(){}, write(){}, readJson(){}, getFolderName(){}};
+module.exports = FileHandler;
