@@ -30,3 +30,5 @@ class Render {
     }
 
 }
+
+module.exports= {generate(){}};

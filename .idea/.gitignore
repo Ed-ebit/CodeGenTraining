@@ -7,3 +7,9 @@
 /dataSources/
 /dataSources.local.xml
 /out/
+
+#lokale Spielereien
+/indexOld.js/
+/parser_html.js/
+/parser_xml.js/
+**/utilities.js/
