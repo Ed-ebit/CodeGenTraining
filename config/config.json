@@ -3,7 +3,7 @@
     {
       "FIRST_NAME": "Leonard",
       "LAST_NAME": "Bolland"
-  },
+    },
     {
       "FIRST_NAME": "Karl-Maddin",
       "LAST_NAME": "Vogel"
@@ -12,5 +12,5 @@
       "FIRST_NAME": "Peter",
       "LAST_NAME": "Hansen"
     }
-    ]
+  ]
 }

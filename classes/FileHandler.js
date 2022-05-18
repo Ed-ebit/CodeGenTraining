@@ -18,17 +18,6 @@ class FileHandler {
         fse.outputFileSync(writePath, content)
     }
 
-    static readJson() {
-        const person = [];
-        for (let i = 0; i < fetchedJson.data.length; i++) {
-
-            let values = Object.values(fetchedJson.data[i]);
-            person[i] = values;
-        }
-        // console.log(person)
-        return person;
-    }
-
     static getFolderName() {
         const currentDate = new Date();
         let dateTime = currentDate.getFullYear() + "_" + (currentDate.getMonth() + 1) + "_" + currentDate.getDate();

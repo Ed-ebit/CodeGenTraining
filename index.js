@@ -2,6 +2,7 @@ const FileHandler = require("./classes/FileHandler");
 const htmlLocator = require("./classes/HtmlLocator");
 const xmlLocator = require("./classes/xmlLocator");
 const Render = require ("./classes/Render");
+const fetchedJson = require("./config/config.json");
 
 const nodeIndex = process.argv;
 // console.log(nodeIndex);
@@ -25,7 +26,7 @@ switch (customValue){
         console.log('Bitte über zusätzlich \"xml\" oder \"html\" als Argument beim Start angeben!')
         break;
 }
-let task = new Render(FileHandler.readJson(), FileHandler.readTemplate(templatePath));
+let task = new Render(fetchedJson.data, FileHandler.readTemplate(templatePath));
 
 // console.log(task);
 // task.generate(); // Not a Function, whyyyy? ;((
