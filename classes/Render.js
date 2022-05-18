@@ -22,10 +22,7 @@ class Render {
             )
 
         const returnStr = this.entities.reduce(entityReducer, '');
-
-        console.log(returnStr)
-
-        return this.template.replace(`##CUSTOMER_START##.*##CUSTOMER_END##`, returnStr);
+        return this.template.replace(/##CUSTOMER_START##.*##CUSTOMER_END##/s, returnStr);
     }
 
     findByMarker(marker) {
