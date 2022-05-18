@@ -1,3 +1,5 @@
+const {startMarker, endMarker}  = require("./Marker");
+
 class Render {
 
     /**
@@ -18,15 +20,18 @@ class Render {
         const entityReducer = (prev, entity) => prev + Object.keys(entity)
             .reduce(
                 replaceReducerGenerator(entity),
-                this.findByMarker("CUSTOMER")
+                this.findByMarker(startMarker,endMarker)
             )
 
         const returnStr = this.entities.reduce(entityReducer, '');
-        return this.template.replace(/##CUSTOMER_START##.*##CUSTOMER_END##/s, returnStr);
+        let regex = new RegExp(`${startMarker}.*${endMarker}`, 's')
+        // console.log(this.template.replace(regex, returnStr));
+        return this.template.replace(regex, returnStr);
     }
 
-    findByMarker(marker) {
-        return this.template.split(`##${marker}_START##`)[1].split(`##${marker}_END##`)[0];
+    findByMarker(startMarker,endMarker) {
+        // console.log(this.template.split(startMarker)[1].split(endMarker)[0])
+        return this.template.split(startMarker)[1].split(endMarker)[0];
     }
 
 }
