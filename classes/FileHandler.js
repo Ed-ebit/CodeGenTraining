@@ -1,6 +1,5 @@
 const fs = require ('fs');
 const fse = require ('fs-extra');
-const fetchedJson = require ('../config/config.json');
 
 class FileHandler {
 
@@ -10,8 +9,7 @@ class FileHandler {
      * @returns {string}
      */
     static readTemplate(readPath) {
-        let data = fs.readFileSync(readPath, 'utf-8')
-        return data;
+        return fs.readFileSync(readPath, 'utf-8')
     }
 
     static write(writePath, content){
@@ -20,8 +18,7 @@ class FileHandler {
 
     static getFolderName() {
         const currentDate = new Date();
-        let dateTime = currentDate.getFullYear() + "_" + (currentDate.getMonth() + 1) + "_" + currentDate.getDate();
-        return dateTime;
+        return currentDate.getFullYear() + "_" + (currentDate.getMonth() + 1) + "_" + currentDate.getDate();
     }
 }
 

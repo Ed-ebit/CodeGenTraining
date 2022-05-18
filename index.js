@@ -24,11 +24,10 @@ switch (customValue){
         break;
     default:
         console.log('Bitte über zusätzlich \"xml\" oder \"html\" als Argument beim Start angeben!')
+        process.exit()
         break;
 }
+
 let task = new Render(fetchedJson.data, FileHandler.readTemplate(templatePath));
 
-// console.log(task);
-// task.generate(); // Not a Function, whyyyy? ;((
 FileHandler.write(writePath, task.generate());
-// console.log(FileHandler.write(writePath, task.generate()));
