@@ -5,30 +5,30 @@ class Render {
      * @param {object} entities
      * @param {string} template
      */
-    constructor(entities, template ){
+    constructor(entities, template) {
         this.entities = entities;
         this.template = template;
 
     }
 
-    generate(){
-        let partial = this.findByMarker("CUSTOMER");
+    generate() {
+        const replaceReducerGenerator = (entity) => (prev, key) =>
+            prev.replace(`##${key}##`, entity[key])
 
-        let returnStr = '';
-        this.entities.forEach(entity => {
-            let templateToReplace = partial
-            Object.keys(entity).forEach(key => {
-               templateToReplace = templateToReplace.replace(`##${key}##`, entity[key])
-            })
-            returnStr += templateToReplace;
-        });
+        const entityReducer = (prev, entity) => prev + Object.keys(entity)
+            .reduce(
+                replaceReducerGenerator(entity),
+                this.findByMarker("CUSTOMER")
+            )
 
-         console.log(returnStr)
+        const returnStr = this.entities.reduce(entityReducer, '');
+
+        console.log(returnStr)
 
         return this.template.replace(`##CUSTOMER_START##.*##CUSTOMER_END##`, returnStr);
     }
 
-    findByMarker(marker){
+    findByMarker(marker) {
         return this.template.split(`##${marker}_START##`)[1].split(`##${marker}_END##`)[0];
     }
 
