@@ -9,12 +9,10 @@ const xmlConfig = {
 // const XMLDataMarker definiert und liefert undefined
 const xmlDataMarker = fetchedJson.data
 xmlDataMarker.forEach(dataMarker => {
-    dataMarker[`Name`] = dataMarker['FIRST_NAME'];
-    dataMarker['LAST_NAME'] = dataMarker['LAST_NAME'];
-    // dataMarker['NAME'] = dataMarker['LASTNAME'];
-    // console.log(dataMarker)
+    dataMarker[`Name`] = dataMarker['FIRST_NAME'] +' '+ dataMarker['LAST_NAME'];
+    dataMarker['"Lastname"'] = dataMarker['LAST_NAME'];
     delete(dataMarker)['FIRST_NAME'];
-    // delete(dataMarker)['LAST_NAME'];
+    delete(dataMarker)['LAST_NAME'];
     console.log(dataMarker)
 } );
 

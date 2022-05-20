@@ -17,12 +17,12 @@ const htmlConfig = {
 
 const htmlDataMarker = fetchedJson.data
 htmlDataMarker.forEach(dataMarker => {
-    dataMarker[`FIRSTNAME`] = dataMarker['FIRST_NAME']; //Wie kann man hier ### als Marker nutzen, ohne dass der key zum string wird?
-    dataMarker['LASTNAME'] = dataMarker['LAST_NAME'];
-     // console.log(dataMarker)
+    dataMarker[`##FIRSTNAME##`] = dataMarker['FIRST_NAME']; //Wie kann man hier ### als Marker nutzen, ohne dass der key zum string wird?
+    dataMarker['##LASTNAME##'] = dataMarker['LAST_NAME'];
+    //console.log(dataMarker)
     delete(dataMarker)['FIRST_NAME'];
     delete(dataMarker)['LAST_NAME'];
-    //console.log(dataMarker)
+    console.log(dataMarker)
 } );
 
 module.exports = {htmlConfig, htmlDataMarker};

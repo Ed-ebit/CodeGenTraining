@@ -3,7 +3,7 @@
 
 <user>
     ##CUSTOMER_START##
-    <name additionalLastname="LAST_NAME">
+    <name additionalLastname="Lastname">
         Name
     </name>
     ##CUSTOMER_END##
