@@ -21,14 +21,14 @@ class ActiveRecord {
                 const htmlConfig = require("../Locator/HtmlConfig");
                 templatePath = htmlConfig.htmlConfig.templatePath;
                 writePath = htmlConfig.htmlConfig.writePath;
-                dataMarker = htmlConfig.htmlDataMarker;
-                //console.log(dataMarker)
+                dataMarker = htmlConfig.htmlConfig.dataMarker;
+                console.log(dataMarker)
                 break;
             default:
                 console.log('Bitte über zusätzlich \"xml\" oder \"html\" als Argument beim Start angeben!');
                 process.exit();
         }
-        // console.log(dataMarker)
+         console.log(dataMarker)
         return {templatePath, writePath, dataMarker};
     }
 

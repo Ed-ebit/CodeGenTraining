@@ -6,5 +6,5 @@ const nodeIndex = process.argv;
 let customValue = nodeIndex[2];
 
 let {templatePath, writePath,dataMarker} = ActiveRecord.chooseProcess(customValue);
-let task = new Render(dataMarker, FileHandler.readTemplate(templatePath));
+let task = new Render(FileHandler.setMarkers(dataMarker), FileHandler.readTemplate(templatePath));
 FileHandler.write(writePath, task.generate());

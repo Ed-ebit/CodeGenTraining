@@ -7,7 +7,7 @@ class Render {
      * @param {object} entities
      * @param {string} template
      */
-    constructor(entities, template) {
+    constructor(entities, template,) {
         this.entities = entities;
         this.template = template;
 
