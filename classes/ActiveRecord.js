@@ -1,4 +1,4 @@
-const xmlConfig = require("../Locator/XmlConfig");
+// const xmlConfig = require("../Locator/XmlConfig");
 // const {htmlDataMarker} = require("../Locator/HtmlConfig");
 
 class ActiveRecord {
@@ -12,7 +12,7 @@ class ActiveRecord {
             case 'xml':
                 console.log('xml wird generiert');
                 const xmlConfig = require("../Locator/XmlConfig");
-                templatePath = xmlConfig.xmlConfig.templatePath;
+                templatePath = xmlConfig.xmlConfig.templatePath; // diese blöcke noch refactorisieren
                 writePath = xmlConfig.xmlConfig.writePath;
                 dataMarker = xmlConfig.xmlDataMarker;
                 break;
@@ -22,7 +22,7 @@ class ActiveRecord {
                 templatePath = htmlConfig.htmlConfig.templatePath;
                 writePath = htmlConfig.htmlConfig.writePath;
                 dataMarker = htmlConfig.htmlDataMarker;
-                console.log(dataMarker)
+                //console.log(dataMarker)
                 break;
             default:
                 console.log('Bitte über zusätzlich \"xml\" oder \"html\" als Argument beim Start angeben!');

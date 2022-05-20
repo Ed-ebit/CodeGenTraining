@@ -5,7 +5,8 @@ const xmlConfig = {
     templatePath: `./templates/template_xml.xml`,
     writePath: `./out/${FileHandler.getFolderName()}/file.xml`,
 };
-
+// const hier ungünstig: immer wenn config dokument aufgerugfen wird, wird die funktion ausgeführt die
+// const XMLDataMarker definiert und liefert undefined
 const xmlDataMarker = fetchedJson.data
 xmlDataMarker.forEach(dataMarker => {
     dataMarker[`NAME`] = dataMarker['FIRST_NAME'];

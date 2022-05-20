@@ -22,7 +22,7 @@ htmlDataMarker.forEach(dataMarker => {
      // console.log(dataMarker)
     delete(dataMarker)['FIRST_NAME'];
     delete(dataMarker)['LAST_NAME'];
-    console.log(dataMarker)
+    //console.log(dataMarker)
 } );
 
 module.exports = {htmlConfig, htmlDataMarker};

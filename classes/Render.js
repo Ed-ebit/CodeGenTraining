@@ -22,7 +22,7 @@ class Render {
                 replaceReducerGenerator(entity),
                 this.findByMarker(startMarker,endMarker)
             )
-        // console.log(this.entities)
+         //console.log(this.entities)
         const returnStr = this.entities.reduce(entityReducer, '');
 
         let regexMarker = new RegExp(`${startMarker}.*${endMarker}`, 's')
@@ -30,7 +30,7 @@ class Render {
     }
 
     findByMarker(startMarker,endMarker) {
-        // console.log(this.template.split(startMarker)[1].split(endMarker)[0])
+         //console.log(this.template.split(startMarker)[1].split(endMarker)[0])
         return this.template.split(startMarker)[1].split(endMarker)[0];
     }
 
