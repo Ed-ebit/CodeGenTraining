@@ -24,11 +24,14 @@ class FileHandler {
 
     static setMarkers(dataMarker) {
         const markedJsonData = fetchedJson.data.map(person => {
+            console.log(person)
             return {
                 [dataMarker[0]]: person["FIRST_NAME"],
                 [dataMarker[1]]: person["LAST_NAME"],
+                [dataMarker[2]]: person["AGE"],
             }
         });
+        console.log(markedJsonData)
         return markedJsonData
     }
 }

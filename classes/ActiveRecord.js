@@ -10,6 +10,10 @@ class ActiveRecord {
                 console.log('html wird generiert');
                 const htmlConfig = require("../Locator/HtmlConfig");
                 return htmlConfig.htmlConfig;
+            case 'csv':
+                console.log('csv wird generiert');
+                const csvConfig = require("../Locator/CsvConfig");
+                return csvConfig.csvConfig;
             default:
                 console.log('Bitte zusätzlich \"xml\" oder \"html\" als Argument beim Start angeben!');
                 process.exit();

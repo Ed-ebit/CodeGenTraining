@@ -2,15 +2,18 @@
   "data": [
     {
       "FIRST_NAME": "Leonard",
-      "LAST_NAME": "Bolland"
+      "LAST_NAME": "Bolland",
+      "AGE": "30"
     },
     {
       "FIRST_NAME": "Karl-Maddin",
-      "LAST_NAME": "Vogel"
+      "LAST_NAME": "Vogel",
+      "AGE": "31"
     },
     {
       "FIRST_NAME": "Peter",
-      "LAST_NAME": "Hansen"
+      "LAST_NAME": "Hansen",
+      "AGE": "32"
     }
   ]
 }

@@ -1,5 +1,4 @@
 const FileHandler = require('../classes/FileHandler');
-const fetchedJson = require("../config/config.json");
 
 const xmlConfig = {
     templatePath: `./templates/template_xml.xml`,
