@@ -3,8 +3,8 @@
 
 <user>
     ##CUSTOMER_START##
-    <name additionalLastname="Lastname">
-        Name
+    <name additionalLastname="\\Lastname">
+        $$Name \\Lastname
     </name>
     ##CUSTOMER_END##
 </user>

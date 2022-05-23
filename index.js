@@ -5,6 +5,8 @@ const ActiveRecord = require("./classes/ActiveRecord");
 const nodeIndex = process.argv;
 let customValue = nodeIndex[2];
 
-let {templatePath, writePath,dataMarker} = ActiveRecord.chooseProcess(customValue);
-let task = new Render(FileHandler.setMarkers(dataMarker), FileHandler.readTemplate(templatePath));
+let chosenConfig = ActiveRecord.chooseProcess(customValue);
+let {templatePath, writePath, dataMarker, } = chosenConfig;
+
+let task = new Render(FileHandler.setMarkers(dataMarker), FileHandler.readTemplate(templatePath), chosenConfig);
 FileHandler.write(writePath, task.generate());

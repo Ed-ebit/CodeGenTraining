@@ -1,5 +1,5 @@
-const fs = require ('fs');
-const fse = require ('fs-extra');
+const fs = require('fs');
+const fse = require('fs-extra');
 const fetchedJson = require("../config/config.json");
 
 class FileHandler {
@@ -13,7 +13,7 @@ class FileHandler {
         return fs.readFileSync(readPath, 'utf-8')
     }
 
-    static write(writePath, content){
+    static write(writePath, content) {
         fse.outputFileSync(writePath, content)
     }
 
@@ -22,16 +22,14 @@ class FileHandler {
         return currentDate.getFullYear() + "_" + (currentDate.getMonth() + 1) + "_" + currentDate.getDate();
     }
 
-    static setMarkers(dataMarker){
-        return fetchedJson.data.forEach(person => {
-            // console.log(dataMarker)
-            person[`${dataMarker[0]}`] = person["FIRST_NAME"]; //Wie kann man hier ### als Marker nutzen, ohne dass der key zum string wird?
-            person[dataMarker[1]] = person["LAST_NAME"];
-            //console.log(dataMarker)
-            delete(person)["FIRST_NAME"];
-            delete(person)["LAST_NAME"];
-             console.log(dataMarker, person)
-        } );
+    static setMarkers(dataMarker) {
+        const markedJsonData = fetchedJson.data.map(person => {
+            return {
+                [dataMarker[0]]: person["FIRST_NAME"],
+                [dataMarker[1]]: person["LAST_NAME"],
+            }
+        });
+        return markedJsonData
     }
 }
 
