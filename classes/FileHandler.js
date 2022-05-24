@@ -22,16 +22,16 @@ class FileHandler {
         return currentDate.getFullYear() + "_" + (currentDate.getMonth() + 1) + "_" + currentDate.getDate();
     }
 
-    static setMarkers(dataMarker) {
+    static setMarkers(dataMarker, jsonMarker) {
         const markedJsonData = fetchedJson.data.map(person => {
-            console.log(person)
-            return {
-                [dataMarker[0]]: person["FIRST_NAME"],
-                [dataMarker[1]]: person["LAST_NAME"],
-                [dataMarker[2]]: person["AGE"],
+            const huiBuhPerson = {}
+            for (let i = 0; i < dataMarker.length; i++) {
+                huiBuhPerson[dataMarker[i]] = person[jsonMarker[i]];
             }
+            console.log(huiBuhPerson)
+            return huiBuhPerson;
         });
-        console.log(markedJsonData)
+        // console.log(markedJsonData)
         return markedJsonData
     }
 }

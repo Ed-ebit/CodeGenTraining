@@ -15,7 +15,7 @@ class Render {
         const replaceReducerGenerator
             = (entity) =>
                 (prev, key) =>
-                     prev.replace(key, entity[key]);
+                     prev.replaceAll(key, entity[key]);
 
         const entityReducer = (prev, entity) => prev + Object.keys(entity)
             .reduce(replaceReducerGenerator(entity),
