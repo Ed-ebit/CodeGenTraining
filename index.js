@@ -1,12 +1,11 @@
-const FileHandler = require("./classes/FileHandler");
-const Render = require("./classes/Render");
-const ActiveRecord = require("./classes/ProcessSelector");
+const GeneralUtility = require("./classes/GeneralUtility");
+const ObjectManager = require("./classes/ObjectManager");
 
-const nodeIndex = process.argv;
-let customValue = nodeIndex[2];
+const processorType = process.argv[2];
 
-let chosenConfig = ActiveRecord.chooseProcess(customValue);
-let {templatePath, writePath, dataMarker, jsonMarker} = chosenConfig;
+const dataProcessor = ObjectManager.getInstance(`/config/${processorType}/${GeneralUtility.getClassName(`${processorType}DataProcessor`)}`)
+const entities = dataProcessor.getEntities(GeneralUtility.loadFile('/config/config.json'))
 
-let task = new Render(FileHandler.setMarkers(dataMarker,jsonMarker), FileHandler.readTemplate(templatePath), chosenConfig);
-FileHandler.write(writePath, task.generate());
+const output = dataProcessor.render(entities);
+
+GeneralUtility.saveAs(output, dataProcessor.getOutputPath());
