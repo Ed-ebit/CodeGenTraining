@@ -26,8 +26,8 @@ const config = require("../Locator")
             if (0<1) {
                 console.log({config:customValue})
                 console.log(`${customValue} wird generiert`);
-                console.log({config.customValue})
-                // return {config:customValue}.config
+                console.log({config:customValue}.config)
+                return {config:customValue}.config
             }
              {
                 console.log(`Bitte bekanntes Argument beim Start angeben!\nbekannte Argumente: ${possibleConfigs} `);
