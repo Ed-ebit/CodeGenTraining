@@ -1,8 +1,8 @@
 const fs = require("fs");
+const config = require("../Locator")
 
-class ProcessSelector {
 
-    static checkPossibleConfigs() {
+    const checkPossibleConfigs = () => {
         let availableConfigs = fs.readdirSync(`./Locator/`)
         let configList = ''
         // for (let i=0; i<availableConfigs.length; i++)
@@ -15,16 +15,21 @@ class ProcessSelector {
         return configList;
     }
 
-    static chooseProcess(customValue) {
-        let possibleConfigs = ProcessSelector.checkPossibleConfigs();
+    const getConfig = (customValue) => {
+        let possibleConfigs = checkPossibleConfigs();
         try {
-            customValue = customValue.charAt(0).toUpperCase() + customValue.slice(1);
-            if (fs.existsSync(`./Locator/${customValue}Config.js`)) {
-                console.log(`${customValue} wird generiert`);
-                const config = require(`../Locator/${customValue}Config`);
-                return config.config;
-            }
-            else {
+            // customValue = customValue.charAt(0).toUpperCase() + customValue.slice(1);
+            // if (fs.existsSync(`./Locator/${customValue}Config.js`)) {
+            //     console.log(`${customValue} wird generiert`);
+            //     // const config = require(`../Locator/${customValue}Config`);
+            //     return config.config;
+
+            console.log(getConfig)
+            // if (config[customValue]) {
+            //     console.log(`${customValue} wird generiert`);
+            //     return config[customValue].config
+            // }
+             {
                 console.log(`Bitte bekanntes Argument beim Start angeben!\nbekannte Argumente: ${possibleConfigs} `);
                 process.exit();
             }
@@ -35,8 +40,8 @@ class ProcessSelector {
             process.exit();
         }
 
-    }
-
 }
 
-module.exports = ProcessSelector;
+module.exports = {
+    getConfig
+};
