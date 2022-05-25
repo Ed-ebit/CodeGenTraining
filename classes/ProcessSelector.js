@@ -23,12 +23,12 @@ const config = require("../Locator")
             //     console.log(`${customValue} wird generiert`);
             //     // const config = require(`../Locator/${customValue}Config`);
             //     return config.config;
-
-            console.log(getConfig)
-            // if (config[customValue]) {
-            //     console.log(`${customValue} wird generiert`);
-            //     return config[customValue].config
-            // }
+            if (0<1) {
+                console.log({config:customValue})
+                console.log(`${customValue} wird generiert`);
+                console.log({config.customValue})
+                // return {config:customValue}.config
+            }
              {
                 console.log(`Bitte bekanntes Argument beim Start angeben!\nbekannte Argumente: ${possibleConfigs} `);
                 process.exit();
