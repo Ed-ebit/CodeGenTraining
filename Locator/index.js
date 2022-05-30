@@ -1,9 +1,9 @@
-const html = require("./HtmlConfig")
-const csv = require("./CsvConfig")
-const xml = require("./XmlConfig")
+const Html = require("./HtmlConfig")
+const Csv = require("./CsvConfig")
+const Xml = require("./XmlConfig")
 
 module.exports = {
-    html,
-    csv,
-    xml
+    Html: Html,
+    Csv: Csv,
+    Xml: Xml
 }

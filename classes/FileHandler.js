@@ -24,14 +24,12 @@ class FileHandler {
 
     static setMarkers(dataMarker, jsonMarker) {
         const markedJsonData = fetchedJson.data.map(person => {
-            const huiBuhPerson = {}
+            const entity = {}
             for (let i = 0; i < dataMarker.length; i++) {
-                huiBuhPerson[dataMarker[i]] = person[jsonMarker[i]];
+                entity[dataMarker[i]] = person[jsonMarker[i]];
             }
-            console.log(huiBuhPerson)
-            return huiBuhPerson;
+            return entity;
         });
-        // console.log(markedJsonData)
         return markedJsonData
     }
 }
